@@ -17,4 +17,9 @@ class Category {
     public function getNameCategory(){
         return $this->nameCategory;
     }
+
+    public function setNameCategory($nameCategoryNew){
+        $this->nameCategory = $nameCategoryNew;
+    }
 }
+?>
