@@ -1,20 +1,20 @@
 <?php
 class Category {
     // Thuộc tính
+    private $idCategory;
+    private $nameCategory;
 
-    private $title;
-    private $summary;
-    private $cat_name;
-
-
-    public function __construct($title, $summary, $cat_name){
-        $this->title = $title;
-        $this->summary = $summary;
-        $this->cat_name = $cat_name;
+    public function __construct($idCategory, $nameCategory){
+        $this->idCategory = $idCategory;
+        $this->nameCategory = $nameCategory;
     }
 
     // Setter và Getter
-    public function getTitle(){
-        return $this->title;
+    public function getIdCategory(){
+        return $this->idCategory;
+    }
+
+    public function getNameCategory(){
+        return $this->nameCategory;
     }
 }
