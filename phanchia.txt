@@ -1,0 +1,4 @@
+Bùi Tuấn Minh: Làm trang chủ,trang chủ admin,login
+Nguyễn Thị Hà Phương: Làm Thêm, sửa, xóa thể loại
+Nguyễn Đăng Khoa: Làm thêm, sửa, xóa tác giả
+Nguyễn Thị Hà Phương: Làm thêm, sửa, xóa bài viết
