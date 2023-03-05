@@ -6,7 +6,6 @@
             $articles = $articleService->getAllArticles();
 
             include("views/article/list_article.php");
-            include("views/article/add_article.php");
         }
 
         public function add_article(){
