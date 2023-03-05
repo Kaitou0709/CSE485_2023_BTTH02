@@ -23,7 +23,7 @@ class MemberService
                 $count = $statement->rowCount();
                 if ($count > 0) {
                     $_SESSION["check"] = $_POST["txtUser"];
-                    header("location:admin_index.php");
+                    header("location:index.php?controller=home&action=index_admin");
                 } else {
                     header("Location:login.php?error=Sai Mật khẩu tài khoản");
                 }

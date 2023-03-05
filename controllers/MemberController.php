@@ -10,7 +10,7 @@ class MemberController{
     {
         session_start();
         if(isset($_SESSION['check'])){
-        header("Location:admin_index.php");
+        header("Location:index.php?controller=home&action=index_admin");
         }
         else
         {
