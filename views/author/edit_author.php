@@ -1,5 +1,5 @@
 <?php
-    include('include/header.php');
+    include_once('include/header.php');
 ?>
 
 <main class="container mt-5 mb-5">
@@ -10,12 +10,12 @@
                 <form action="edit_author.php" method="post">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblAuId">Mã tác giả</span>
-                        <input type="text" class="form-control" name="txtAuId" value=<?=$author->getIdAuthor()?>>
+                        <input type="text" class="form-control" name="txtAuId" value="<?=$author->getIdAuthor()?>">
                     </div>
 
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblAuName">Tên tác giả</span>
-                        <input type="text" class="form-control" name="txtAuName" value =<?=$author->getNameAuthor()?>>
+                        <input type="text" class="form-control" name="txtAuName" value ="<?=$author->getNameAuthor()?>">
                     </div>
 
                     <div class="form-group  float-end ">
@@ -27,5 +27,5 @@
         </div>
     </main>
 <?php
-    include('include/footer.php');
+    include_once('include/footer.php');
 ?>
