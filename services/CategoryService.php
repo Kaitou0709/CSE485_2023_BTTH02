@@ -5,7 +5,7 @@ use function PHPSTORM_META\argumentsSet;
     include("../configs/DBConnection.php");
     include("../models/Category.php");
     class CategoryService {
-        public function getAllCategories() {
+        public function getAllCategories($sql) {
             // 4 bước thực hiện
             $dbConn = new DBConnection();
             $conn = $dbConn->getConnection();           // Khoi tao doi tuong PDO
