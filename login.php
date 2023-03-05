@@ -1,5 +1,5 @@
 <?php
-    $controller = isset($_GET['controller'])?$_GET['controller']:'home';
+    $controller = isset($_GET['controller'])?$_GET['controller']:'Member';
     $action     = isset($_GET['action'])?$_GET['action']:'index';
     $controller = ucfirst($controller);
     $controller .= 'Controller';

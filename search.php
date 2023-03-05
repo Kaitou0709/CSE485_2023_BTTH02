@@ -1,6 +1,7 @@
 <?php
     $controller = isset($_GET['controller'])?$_GET['controller']:'home';
-    $action     = isset($_GET['action'])?$_GET['action']:'index';
+    $action     = isset($_GET['action'])?$_GET['action']:'search';
+    $text_search = filter_input(INPUT_GET, 'term', FILTER_SANITIZE_STRING);
     $controller = ucfirst($controller);
     $controller .= 'Controller';
     $controllerPath = 'controllers/'.$controller.'.php';
@@ -9,5 +10,5 @@
     }
     require($controllerPath);
     $myObj = new $controller();
-    $myObj->$action();
+    $myObj->$action($text_search);
 ?>
