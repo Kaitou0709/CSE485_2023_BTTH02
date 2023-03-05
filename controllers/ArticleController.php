@@ -1,5 +1,6 @@
 <?php 
     include_once('services/ArticleService.php');
+   
     class ArticleController{
         public function index(){
             $articleService = new ArticleService();
@@ -10,6 +11,7 @@
 
         public function add_article(){
             $articleService = new ArticleService();
+           
             date_default_timezone_set('Asia/Ho_Chi_Minh');
             if(isset($_POST['add'])){
                 $title = trim($_POST['txtTitle'] ?? '');
@@ -63,6 +65,7 @@
         public function edit_article(){
             $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
             $articleService = new ArticleService();
+            
             $article = $articleService->getAricleById($id);
             date_default_timezone_set('Asia/Ho_Chi_Minh');
             $title = trim($_POST['txtTitle'] ?? '');
