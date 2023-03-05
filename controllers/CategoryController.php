@@ -35,20 +35,14 @@
             // Nhiệm vụ 1: Tương tác với Services/Models
             // echo "Tương tác với Services/Models from Category";
             $categoryService = new CategoryService();
-
             // Lấy ra thông tin cần sửa
-            if (isset($_GET['id']))
-                $arguments['matheloai'] = $_GET['id'];
-            $category = $categoryService->getByID($arguments);
-
+            $ma_tloai = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
             // Nếu nhấn submit thì sẽ tiến hành kiểm tra và sửa thông tin nếu thỏa mãn ĐK
             if (isset($_POST['btn'])) {
                 $ten_tloai = trim($_POST['ten_tloai']);
-                $ma_tloai = $_POST['ma_tloai'];
                 if (!empty($ten_tloai)) {
                     $arguments['tentheloai'] = $ten_tloai;
                     $arguments['matheloai'] = $ma_tloai;
-
                     $categoryService->Update($arguments);
                     header("location:?controller=category");
                 }
@@ -68,7 +62,7 @@
             $articleService = new ArticleService();
 
             $ma_tloai = $_GET['id'];
-            $articles = $articleService->getAllArticles("SELECT * FROM baiviet WHERE ma_tloai = '$ma_tloai'");
+            $articles = $articleService->getArticleIdTheloai($ma_tloai);
             if (isset($_POST['confirm'])) {
                 if (count($articles) == 0) {            // Nếu ko có ràng buộc khóa ngoại với Bài viết
                     $arguments['matheloai'] = $ma_tloai;

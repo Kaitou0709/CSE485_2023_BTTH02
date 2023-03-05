@@ -5,7 +5,7 @@ use function PHPSTORM_META\argumentsSet;
     include("configs/DBConnection.php");
     include("models/Category.php");
     class CategoryService {
-        public function getAllCategories() {
+        public function getAllCategories($sql) {
             // 4 bước thực hiện
             $dbConn = new DBConnection();
             $conn = $dbConn->getConnection();           // Khoi tao doi tuong PDO
@@ -49,10 +49,9 @@ use function PHPSTORM_META\argumentsSet;
         public function Update(array $arguments){   
             $database = new DBConnection();
             $pdo = $database->getConnection();          // Khoi tao doi tuong PDO
-
             $stmt = $pdo->prepare("UPDATE `theloai` SET `ten_tloai`=:tentheloai WHERE ma_tloai=:matheloai");
             $stmt->execute($arguments);
-            $pdo = null;                                // Dong ket noi
+
         }
 
         public function Delete(array $arguments){   
