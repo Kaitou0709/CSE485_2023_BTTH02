@@ -11,7 +11,7 @@ include('views/include/header.php');
                         <h5 class="card-title mb-2">
                             <a href="" class="text-decoration-none"><?= htmlspecialchars($articles->getTitle()) ?></a>
                         </h5>
-                        <p class="card-text"><span class=" fw-bold">Bài hát: </span><?= htmlspecialchars($articles->getNamSong()) ?></p>
+                        <p class="card-text"><span class=" fw-bold">Bài hát: </span><?= htmlspecialchars($articles->getNameSong()) ?></p>
                         <p class="card-text"><span class=" fw-bold">Thể loại: </span><?= htmlspecialchars($articles->getIdCategory()) ?></p>
                         <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?= htmlspecialchars($articles->getSummary()) ?></p>
                         <p class="card-text"><span class=" fw-bold">Nội dung: </span><?= htmlspecialchars($articles->getContent()) ?></p>

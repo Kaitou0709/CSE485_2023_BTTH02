@@ -43,7 +43,7 @@ include('views/include/header.php');
                 <img src="./assets/<?= htmlspecialchars($article->getImage()) ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title text-center">
-                        <a href="./detail.php?id=<?= htmlspecialchars($article->getId())?>&action=detail" class="text-decoration-none"><?= htmlspecialchars($article->getNamSong()) ?></a>
+                        <a href="./detail.php?id=<?= htmlspecialchars($article->getId())?>&action=detail" class="text-decoration-none"><?= htmlspecialchars($article->getNameSong()) ?></a>
                     </h5>
                 </div>
             </div>
