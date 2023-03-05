@@ -22,12 +22,9 @@ class AuthorService{
     public function getAuById($idAu){   
         $database = new DBConnection();
         $pdo = $database->getConnection();      
-        $stmt = $pdo->prepare("SELECT tacgia(ma_tgia, ten_tgia) FROM tacgia WHERE ma_tgia=$idAu");
-        $stmt->execute($stmt);
-        $row = $stmt->fetch();
-        $author = new Author($row['ma_tgia'], $row['ten_tgia']);
-                                       
-        return $author;
+        $stmt = $pdo->prepare("SELECT ten_tgia) FROM tacgia WHERE ma_tgia=$idAu");
+        $row = $stmt->fetch();             
+        return $row;
     }
 
     public function insert(array $arguments){
@@ -44,8 +41,8 @@ class AuthorService{
 
     public function update(array $arguments){
         $dbConn = new DBConnection();
-        $conn   = $dbconn->getConnection();
-        $sql    = "UPDATE tacgia SET `ten_tgia` = :tentacgia WHERE `ma_tgia` = :matacgia";
+        $conn   = $dbConn->getConnection();
+        $sql    = "UPDATE tacgia SET `ten_tgia` = :ten_tgia WHERE `ma_tgia` = :ma_tgia";
         $statement = $conn->prepare($sql);
         $statement->execute($arguments);
     }
@@ -53,7 +50,6 @@ class AuthorService{
     public function delete($ma_tgia){
         $dbconn = new DBConnection();
         $conn   = $dbconn->getConnection();
-
         $sql ="DELETE FROM tacgia WHERE `tacgia`.`ma_tgia` = $ma_tgia";
         $statment = $conn->prepare($sql);
         $statment->execute();

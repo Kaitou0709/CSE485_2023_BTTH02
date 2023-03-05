@@ -27,27 +27,23 @@ class AuthorController{
         include("views/author/add_author.php");
     }
     public function edit_author(){
-        $idAuthor = filter_input(INPUT_GET, 'ma_tgia', FILTER_VALIDATE_INT);
+        $idAuthor = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         $authorService = new AuthorService();
         $author = $authorService->getAuById($idAuthor);
-        $nameauthor = trim($_POST['txtAuName']);
+        $nameauthor = trim($_POST['txtAuName']??'');
         if(isset($_POST['update'])){
             $arguments['ten_tgia'] = $nameauthor;
-            $ids['matacgia']=$idAuthor;
-            $authorService->update($arguments, $ids);
+            $arguments['ma_tgia']= $idAuthor;
+            $authorService->update($arguments);
             header("location:?controller=author");
-        }
-        else{
-            header("location:?controller=author&action=edit_author&id=$idAuthor");
         }
         include('views/author/edit_author.php');
     }
     
     public function delete_author(){
         $authorService = new AuthorService();
-        $ma_tgia = filter_input(INPUT_GET, 'ma_tgia', FILTER_VALIDATE_INT);
-
-        if(isset($_POST['oke'])){
+        $ma_tgia = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        if(isset($_POST['submit'])){
             $authorService->delete($ma_tgia);
             header("location:?controller=author");
         }

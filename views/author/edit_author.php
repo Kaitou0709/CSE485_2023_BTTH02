@@ -1,7 +1,6 @@
 <?php
-    include_once('include/header.php');
+    include_once('views/include/admin/header.php');
 ?>
-
 <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
@@ -10,12 +9,12 @@
                 <form action="" method="post">
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAuId">Mã tác giả</span>
-                    <input type="text" class="form-control" name="txtAuId" value="<?=$Author->getIdAuthor()?>">
+                    <input type="text" class="form-control" name="txtAuId" value="<?=$idAuthor?>" disabled>
                 </div>
 
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblAuName">Tên tác giả</span>
-                        <input type="text" class="form-control" name="txtAuName" value ="<?= $Author->getNameAuthor()?>">
+                        <input type="text" class="form-control" name="txtAuName">
                     </div>
 
                     <div class="form-group  float-end ">
@@ -27,5 +26,5 @@
         </div>
     </main>
 <?php
-    include_once('include/footer.php');
+    include_once('views/include/admin/footer.php');
 ?>

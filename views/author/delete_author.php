@@ -1,4 +1,6 @@
-<?php include('include/header.php')?>
+<?php
+    include_once('views/include/admin/header.php');
+?>
 
 <main class="container">
     <form action="" method="post"
@@ -7,9 +9,11 @@
         Bạn có chắc muốn xóa không ?
         </h3>
         <div>
-            <input class="btn btn-success" type="submit" name='confirm' value="xóa">
+            <input class="btn btn-success" type="submit" name='submit' value="xóa">
             <a href="?controller=author" class="btn btn-warning" >quay lại</a>
         </div>
     </form>
 </main>
-<?php include('include/footer.php')?>
+<?php
+    include_once('views/include/admin/footer.php');
+?>
