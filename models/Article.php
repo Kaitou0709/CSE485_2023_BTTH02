@@ -29,7 +29,7 @@ class Article{
     public function getTitle(){
         return $this->title;
     }
-    public function getNamSong(){
+    public function getNameSong(){
         return $this->nameSong;
     }
     public function getIdCategory(){
