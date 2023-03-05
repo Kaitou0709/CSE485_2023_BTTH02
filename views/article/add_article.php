@@ -1,67 +1,6 @@
-<style>
-input[type=file]{
-    width: 350px;
 
-}
-input[type=file]::file-selector-button {
-  margin-right: 20px;
-  border: none;
-  background: #084cdf;
-  padding: 10px 20px;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  transition: background .2s ease-in-out;
-}
-
-input[type=file]::file-selector-button:hover {
-    background-color: rgb(0, 200, 255);
-}
-
-.drop-container {
-  position: relative;
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  width: 100%;
-  padding: 20px;
-  border-radius: 10px;
-  border: 2px dashed #555;
-  color: #444;
-  cursor: pointer;
-  transition: background .2s ease-in-out, border .2s ease-in-out;
-}
-
-.drop-container:hover {
-  background: #eee;
-  border-color: #111;
-}
-
-.drop-container:hover .drop-title {
-  color: #222;
-}
-
-.drop-title {
-  color: #444;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  transition: color .2s ease-in-out;
-}
-span{
-    width: 100px;
-}
-
-select{
-    width: 150px;
-    height: 30px;
-}
-
-</style>
 <?php include('views/include/admin/header.php')?>
+<link rel="stylesheet" href="assets/css/style_article.css">
 <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
