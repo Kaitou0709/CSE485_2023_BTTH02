@@ -15,5 +15,3 @@ class DBConnection{
     public function getConnection(){
         return $this->conn;
     }
-}
-?>

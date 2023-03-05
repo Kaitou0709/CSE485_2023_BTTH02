@@ -1,5 +1,5 @@
-
-    $controller = isset($_GET['controller'])?$_GET['controller']:'home';
+<?php
+    $controller = isset($_GET['controller'])?$_GET['controller']:'Member';
     $action     = isset($_GET['action'])?$_GET['action']:'index';
     $controller = ucfirst($controller);
     $controller .= 'Controller';
@@ -10,3 +10,4 @@
     require($controllerPath);
     $myObj = new $controller();
     $myObj->$action();
+?>
