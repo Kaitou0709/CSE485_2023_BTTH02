@@ -1,5 +1,5 @@
 <?php
-    require_once('views/include/admin/header.php');
+    include_once('views/include/admin/header.php');
 ?>
 
 <main class="container mt-5 mb-5">

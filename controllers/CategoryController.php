@@ -8,7 +8,7 @@
             $categoryService = new CategoryService();
             $categories = $categoryService->getAllCategories("SELECT * FROM theloai");
             // Nhiệm vụ 2: Tương tác với View
-            include("view/category/list_category.php");
+            include("views/category/list_category.php");
         }
 
         public function add_category() {

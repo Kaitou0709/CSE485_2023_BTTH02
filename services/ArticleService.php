@@ -1,6 +1,6 @@
 <?php 
-    include('../configs/database-connection.php');
-    include('../models/Article.php');
+    include_once(__DIR__.'/../configs/DBConnection.php');
+    include_once(__DIR__.'/../models/Article.php');
 
     class ArticleService{
         public function getAllArticles(){

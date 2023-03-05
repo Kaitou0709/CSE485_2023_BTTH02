@@ -9,12 +9,12 @@
             <form action="" method="post">
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblCatId">Mã thể loại</span>
-                    <input type="text" class="form-control" name="ma_tloai" readonly value="<?=$category->getMaTheLoai() ?? '' ?>">
+                    <input type="text" class="form-control" name="ma_tloai" readonly value="<?=$id?>">
                 </div>
 
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblCatName">Tên thể loại</span>
-                    <input type="text" class="form-control" name="ten_tloai" value="<?=$category->getTenTheLoai() ?? '' ?>">
+                    <input type="text" class="form-control" name="ten_tloai" value="">
                 </div>
                 
                 <div class="form-group" style="color:red">
