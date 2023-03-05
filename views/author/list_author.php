@@ -21,7 +21,7 @@
                     foreach($authors as $author){?>
                 <tr>
                     <th scope="row"><?= $author->getIdAuthor()?></th>
-                    <td style="max-width: 100px;"><?= $article->getNameAuthor()?></td>
+                    <td> <?= $author->getNameAuthor() ?> </td>
                     <td>
                         <a href="?controller=author&action=edit_author&id=<?= $author->getIdAuthor()?>"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>

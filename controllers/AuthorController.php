@@ -13,31 +13,32 @@ class AuthorController{
     public function add_author(){
         $authorService = new AuthorService();
         if(isset($_POST['add'])){
-            $ten_tgia = trim($_POST['txtAuName'] ?? '');
+            $ten_tgia = trim($_POST["txtAuName"]);
             if(!empty($ten_tgia)){
-                $arguments['ten_tgia'] = $ten_tgia;
+                $arguments['tentacgia'] = $ten_tgia;
                 $authorService->insert($arguments);
                 header("location:?controller=author");
             }
-        else{
-            $mess = "nhap lai di";
-            header("location:?controller=author&action=add_author&mess=$mess");
-        }
+            else{
+                $mess = "";
+                header("location:?controller=author&action=add_author&mess=$mess");
+            }
         }
         include("views/author/add_author.php");
     }
     public function edit_author(){
-        $ma_tgia = filter_input(INPUT_GET, 'ma_tgia', FILTER_VALIDATE_INT);
+        $idAuthor = filter_input(INPUT_GET, 'ma_tgia', FILTER_VALIDATE_INT);
         $authorService = new AuthorService();
-        $author = $authorService->getAuById($ma_tgia);
-        $ten_tgia = trim($_POST['txtAuName']);
+        $author = $authorService->getAuById($idAuthor);
+        $nameauthor = trim($_POST['txtAuName']);
         if(isset($_POST['update'])){
-            $arguments['ten_tiga'] = $ten_tgia;
-            $authorService->update($arguments);
+            $arguments['ten_tgia'] = $nameauthor;
+            $ids['matacgia']=$idAuthor;
+            $authorService->update($arguments, $ids);
             header("location:?controller=author");
         }
         else{
-            header("location:?controller=author&action=edit_author&id=$ma_tgia");
+            header("location:?controller=author&action=edit_author&id=$idAuthor");
         }
         include('views/author/edit_author.php');
     }
@@ -45,7 +46,8 @@ class AuthorController{
     public function delete_author(){
         $authorService = new AuthorService();
         $ma_tgia = filter_input(INPUT_GET, 'ma_tgia', FILTER_VALIDATE_INT);
-        if(isset($POST['confirm'])){
+
+        if(isset($_POST['oke'])){
             $authorService->delete($ma_tgia);
             header("location:?controller=author");
         }

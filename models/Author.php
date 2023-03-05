@@ -1,23 +1,20 @@
 <?php
     class Author{
-        private $ma_tgia;
-        private $ten_tgia;
+        private $idAuthor;
+        private $nameAuthor;
 
 
-        public function _construct($ma_tgia, $ten_tgia){
-            $this->ma_tgia = $ma_tgia;
-            $this->ten_tgia = $ten_tgia;
+        public function __construct($idAuthor, $nameAuthor){
+            $this->idAuthor = $idAuthor;
+            $this->nameAuthor = $nameAuthor;
         }
 
         public function getIdAuthor(){
-            return $this->ma_tgia;
+            return $this->idAuthor;
         }
         public function getNameAuthor(){
-            return $this->ten_tgia;
+            return $this->nameAuthor;
         }
 
-        public function setNameAuthor($ten_gia_Moi){
-            $this->ten_tgia = $ten_gia_Moi;
-        }
     }
 ?>

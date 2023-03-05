@@ -7,15 +7,15 @@
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Sửa thông tin tác giả</h3>
-                <form action="edit_author.php" method="post">
+                <form action="" method="post">
                 <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblAuId">Mã tác giả</span>
-                        <input type="text" class="form-control" name="txtAuId" value="<?=$author->getIdAuthor()?>">
-                    </div>
+                    <span class="input-group-text" id="lblAuId">Mã tác giả</span>
+                    <input type="text" class="form-control" name="txtAuId" value="<?=$Author->getIdAuthor()?>">
+                </div>
 
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblAuName">Tên tác giả</span>
-                        <input type="text" class="form-control" name="txtAuName" value ="<?=$author->getNameAuthor()?>">
+                        <input type="text" class="form-control" name="txtAuName" value ="<?= $Author->getNameAuthor()?>">
                     </div>
 
                     <div class="form-group  float-end ">
