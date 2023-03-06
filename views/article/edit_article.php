@@ -44,9 +44,9 @@
                         <label for="category">Chọn thể loại</label>
                         
                         <select name="category" id="category">
-                            <option value="<?= $article->getIdCategory()?>"><?= $article->getIdCategory()?></option>
                             <?php foreach($categories as $category){?> 
-                                <option value=""></option>
+                                <option value="<?= $category->getNameCategory()?>" <?php if($article->getIdCategory() == $category->getNameCategory())
+                                echo 'selected' ?>><?= $category->getNameCategory()?></option>
                             <?php } ?>
                         </select>
                     </div>

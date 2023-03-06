@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Thêm mới bài viết</h3>
-                <form action="add_article.php" method="POST" enctype="multipart/form-data">
+                <form action="" method="POST" enctype="multipart/form-data">
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tiêu đề</span>
                         <input type="text" class="form-control" name="txtTitle" >
@@ -46,7 +46,7 @@
                         <select name="category" id="category">
                             <option value=""></option>
                             <?php foreach($categories as $category){?> 
-                                <option value=""></option>
+                                <option value="<?= $category->getNameCategory()?>"><?= $category->getNameCategory()?></option>
                             <?php } ?>
                         </select>
                     </div>
