@@ -1,9 +1,8 @@
 
-<?php 
+<?php
+    include_once("services/AuthorService.php");
     include_once("services/CategoryService.php");
-    // include_once("services/AuthorService.php");
     include_once("services/ArticleService.php");
-   
     class ArticleController{
         public function index(){
             $articleService = new ArticleService();
@@ -16,6 +15,8 @@
             $articleService = new ArticleService();
             $categoryService = new CategoryService();
             $categories = $categoryService->getAllCategories();
+            $authorService = new AuthorService();
+            $authors = $authorService->getAllAuthors();
             date_default_timezone_set('Asia/Ho_Chi_Minh');
             if(isset($_POST['add'])){
                 $title = trim($_POST['txtTitle'] ?? '');
@@ -72,6 +73,8 @@
             $article = $articleService->getArticleId($id);
             $categoryService = new CategoryService();
             $categories = $categoryService->getAllCategories();
+            $authorService = new AuthorService();
+            $authors = $authorService->getAllAuthors();
             date_default_timezone_set('Asia/Ho_Chi_Minh');
             $title = trim($_POST['txtTitle'] ?? '');
             $nameSong = trim($_POST['txtSongName'] ?? '');
@@ -87,14 +90,14 @@
             $ext = pathinfo($image_article, PATHINFO_EXTENSION);
             if(isset($_POST['update'])){
                 if(!empty($title) and !empty($nameSong) and !empty($summary)){
-                        
+                        $newImage = $image_article;
                         if(empty($image_article)){
                             $arguments['id'] = $id;
-                            $newImage = $articleService->getAricleById($id)->getImage();
+                            $newImage = $articleService->getArticleId($id)->getImage();
                         }
                         else{
                             if(in_array($ext, $extensions)){
-                                move_uploaded_file($_FILES['image']['tmp_name'], 'assets/images/songs'.$image_article);
+                                move_uploaded_file($_FILES['image']['tmp_name'], 'assets/images/songs'.$newImage);
                             }
                             else{
                                 $mess = "Hình ảnh chỉ nhận file: .png, .jpg";
@@ -109,7 +112,7 @@
                         $arguments['summary'] = $summary;
                         $arguments['content'] = $content;
                         $arguments['author'] = $author;
-                        $arguments['image_article'] = $image_article;
+                        $arguments['image_article'] = $newImage;
                         $articleService->update($arguments);
                         header("location:?controller=article");
                     }

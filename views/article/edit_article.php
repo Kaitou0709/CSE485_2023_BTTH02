@@ -55,9 +55,9 @@
                     <div style = "margin: 15px 0;">
                         <label for="author" style="margin-right: 19px;">Tên tác giả</label>
                         <select name="author" id="author" >
-                                <option value="<?= $article->getIdAuthor()?>"><?= $article->getIdAuthor()?></option>
-                                    <?php foreach($authors as $author){?> 
-                                <option value=""></option>
+                                <?php foreach($authors as $author){?> 
+                                <option value="<?=$author->getNameAuthor()?>" <?php if($article->getIdAuthor() == 
+                                $author->getNameAuthor()) echo 'selected'?>><?=$author->getNameAuthor()?></option>
                                 <?php } ?>
                         </select>
                     </div>

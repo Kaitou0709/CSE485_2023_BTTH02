@@ -1,6 +1,6 @@
 <?php
-    include("configs/DBConnection.php");
-    include("models/Author.php");
+    include_once("configs/DBConnection.php");
+    include_once("models/Author.php");
 class AuthorService{
     public function getAllAuthors(){
 
@@ -15,7 +15,7 @@ class AuthorService{
             $author = new Author($row['ma_tgia'], $row['ten_tgia']);
             array_push($authors,$author);
         }
-
+        $conn = null;
         return $authors;
     }
 
@@ -23,8 +23,10 @@ class AuthorService{
         $database = new DBConnection();
         $pdo = $database->getConnection();      
         $stmt = $pdo->prepare("SELECT ten_tgia) FROM tacgia WHERE ma_tgia=$idAu");
-        $row = $stmt->fetch();             
+        $row = $stmt->fetch();
+        $pdo = null;             
         return $row;
+        
     }
 
     public function insert(array $arguments){
@@ -37,6 +39,7 @@ class AuthorService{
         $sql    = "INSERT INTO tacgia( ma_tgia, ten_tgia) VALUES($max_id+1, :tentacgia ) ";
         $statement = $conn->prepare($sql);
         $statement->execute($arguments);
+        $conn = null;
     }
 
     public function update(array $arguments){
@@ -45,6 +48,7 @@ class AuthorService{
         $sql    = "UPDATE tacgia SET `ten_tgia` = :ten_tgia WHERE `ma_tgia` = :ma_tgia";
         $statement = $conn->prepare($sql);
         $statement->execute($arguments);
+        $conn = null;
     }
 
     public function delete($ma_tgia){
@@ -53,6 +57,7 @@ class AuthorService{
         $sql ="DELETE FROM tacgia WHERE `tacgia`.`ma_tgia` = $ma_tgia";
         $statment = $conn->prepare($sql);
         $statment->execute();
+        $conn = null;
     }
 
 }?>

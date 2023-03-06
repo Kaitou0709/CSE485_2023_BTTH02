@@ -2,8 +2,8 @@
 
 use function PHPSTORM_META\argumentsSet;
 
-    include("configs/DBConnection.php");
-    include("models/Category.php");
+    include_once("configs/DBConnection.php");
+    include_once("models/Category.php");
     class CategoryService {
         public function getAllCategories() {
             // 4 bước thực hiện
@@ -31,7 +31,7 @@ use function PHPSTORM_META\argumentsSet;
             $pdo = $database->getConnection();          // Khoi tao doi tuong PDO
             $stmt = $pdo->prepare("SELECT * FROM theloai WHERE ma_tloai=:matheloai");
             $stmt->execute($arguments);
-            $row = $stmt->fetch();
+            $row = $stmt->fetch();  
             $category = new Category($row['ma_tloai'], $row['ten_tloai']);
             $pdo = null;                                // Dong ket noi
             return $category;

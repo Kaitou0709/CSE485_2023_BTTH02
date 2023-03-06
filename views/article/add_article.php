@@ -57,7 +57,7 @@
                         <select name="author" id="author" >
                                 <option value=""></option>
                                     <?php foreach($authors as $author){?> 
-                                <option value=""></option>
+                                <option value="<?= $author->getNameAuthor()?>"><?= $author->getNameAuthor()?></option>
                                 <?php } ?>
                         </select>
                     </div>

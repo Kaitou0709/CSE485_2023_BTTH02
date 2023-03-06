@@ -1,6 +1,6 @@
 <?php 
-    include_once(__DIR__.'/../configs/DBConnection.php');
-    include_once(__DIR__.'/../models/Article.php');
+    include_once('configs/DBConnection.php');
+    include_once('models/Article.php');
 
     class ArticleService{
         public function getAllArticles(){
@@ -21,6 +21,7 @@
                                         $row['noidung'], $row['ten_tgia'], $row['ngayviet'], $row['hinhanh']);
                 array_push($articles, $article);
             }
+            $conn = null;
             return $articles;
         }
         public function getArticleId($id)
@@ -36,6 +37,7 @@
             $row = $statment->fetch();
             $article = new Article($row['ma_bviet'], $row['tieude'], $row['ten_bhat'], $row['ten_tloai'], $row['tomtat'],
                         $row['noidung'], $row['ten_tgia'], $row['ngayviet'], $row['hinhanh']);
+            $conn = null;
             return $article;
         }
         public function getArticleText($text_search)
@@ -54,6 +56,7 @@
                                         $row['noidung'], $row['ten_tgia'], $row['ngayviet'], $row['hinhanh']);
                 array_push($articles, $article);
             }
+            $conn = null;
             return $articles;
         }
         public function getArticleIdTheloai($ma_tloai)
@@ -72,6 +75,7 @@
                                         $row['noidung'], $row['ten_tgia'], $row['ngayviet'], $row['hinhanh']);
                 array_push($articles, $article);
             }
+            $conn = null;
             return $articles;
         }
         public function insert(array $arguments){
@@ -83,6 +87,7 @@
             :summary, :content, (SELECT ma_tgia FROM tacgia WHERE ten_tgia = :author), :date_post, :image_article)";
             $statment = $conn->prepare($sql);
             $statment->execute($arguments);
+            $conn = null;
         }
 
         public function update(array $arguments){
@@ -93,6 +98,7 @@
             tomtat = :summary', noidung = :content, ma_tgia = (SELECT ma_tgia FROM tacgia WHERE ten_tgia = :author), hinhanh = :image_article WHERE ma_bviet = :id";
             $statment = $conn->prepare($sql);
             $statment->execute($arguments);
+            $conn = null;
             
         }
         public function delete($id){
@@ -102,6 +108,7 @@
             $sql = "DELETE FROM baiviet WHERE ma_bviet = $id";
             $statment = $conn->prepare($sql);
             $statment->execute();
+            $conn = null;
         }
     }
 
